@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		88D5EED82D86D5B300248D71 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 88D5EED72D86D5B300248D71 /* SnapKit */; };
+		88D5EEDB2D86D5BB00248D71 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 88D5EEDA2D86D5BB00248D71 /* Toast */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		88D5EEB42D86D38100248D71 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,6 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88D5EEDB2D86D5BB00248D71 /* Toast in Frameworks */,
+				88D5EED82D86D5B300248D71 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +132,8 @@
 			);
 			name = Portfolio;
 			packageProductDependencies = (
+				88D5EED72D86D5B300248D71 /* SnapKit */,
+				88D5EEDA2D86D5BB00248D71 /* Toast */,
 			);
 			productName = Portfolio;
 			productReference = 88D5EE9D2D86D37F00248D71 /* Portfolio.app */;
@@ -208,6 +217,10 @@
 			);
 			mainGroup = 88D5EE942D86D37F00248D71;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				88D5EED62D86D5B300248D71 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				88D5EED92D86D5BB00248D71 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 88D5EE9E2D86D37F00248D71 /* Products */;
 			projectDirPath = "";
@@ -573,6 +586,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		88D5EED62D86D5B300248D71 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		88D5EED92D86D5BB00248D71 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		88D5EED72D86D5B300248D71 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 88D5EED62D86D5B300248D71 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		88D5EEDA2D86D5BB00248D71 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 88D5EED92D86D5BB00248D71 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 88D5EE952D86D37F00248D71 /* Project object */;
 }
