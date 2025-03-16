@@ -208,13 +208,13 @@ final class AssetViewController: UIViewController {
     
     // 자산리스트 json 로드
     private func configureAssetList() {
-        guard let Portfolio = viewModel.readPortfolio() else {
+        guard let portfolio = viewModel.readPortfolio() else {
             view.makeToast("보유한 자산이 없습니다")
             return
         }
         
         // 선진, 신흥 구분이 없이 데이터가 있기 때문에 편의상 모두 선진(주식/채권)이라고 가정
-        let asset = Portfolio.data.assetList
+        let asset = portfolio.data.assetList
         let stock = asset.filter { $0.type == PortfolioType.stock.rawValue }.map { $0.ratio }.reduce(0, +)
         let bond = asset.filter { $0.type == PortfolioType.bond.rawValue }.map { $0.ratio }.reduce(0, +)
         let etc = asset.filter { $0.type == PortfolioType.etc.rawValue }.map { $0.ratio }.reduce(0, +)
