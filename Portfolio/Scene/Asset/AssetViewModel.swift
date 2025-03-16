@@ -16,7 +16,7 @@ final class AssetViewModel {
     }
     
     func readPortfolio() -> Portfolio? {
-        guard let data = jsonConverter.readJSONFile(fileName: "Portfolio"),
+        guard let data = jsonConverter.readJSONFile(fileName: "portfolio"),
         let Portfolio: Portfolio = jsonConverter.convertFromJSON(data: data) else { return nil }
         self.Portfolio = Portfolio
         return Portfolio

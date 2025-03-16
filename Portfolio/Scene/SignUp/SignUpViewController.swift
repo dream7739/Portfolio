@@ -83,7 +83,7 @@ final class SignUpViewController: UIViewController {
         infoStackView.axis = .vertical
         infoStackView.spacing = 10
         infoStackView.alignment = .leading
-     
+        
         emailInputView.inputTextField.becomeFirstResponder()
         
         nextButton.setButtonTitle("회원가입")
@@ -96,7 +96,17 @@ final class SignUpViewController: UIViewController {
     
     @objc private func nextButtonClicked() {
         let isValid = checkInputValidation()
-        print(isValid)
+        if isValid {
+            let email = emailInputView.inputTextField.text!.trimmingCharacters(in: .whitespaces)
+            let password = passwordInputView.inputTextField.text!.trimmingCharacters(in: .whitespaces)
+            viewModel.saveUserCredentials(email: email, password: password)
+            
+            let assetViewModel = AssetViewModel(jsonConverter: JSONConverter.shared)
+            let assetViewController = AssetViewController(viewModel: assetViewModel)
+            navigationController?.pushViewController(assetViewController, animated: true)
+            
+            print(try? KeychainManager.shared.getEmailPassword())
+        }
     }
 }
 

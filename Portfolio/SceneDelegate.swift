@@ -28,7 +28,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        )
         
         let signUpViewController = UINavigationController(
-            rootViewController: SignUpViewController(viewModel: SignUpViewModel())
+            rootViewController: SignUpViewController(
+                viewModel: SignUpViewModel(
+                    keychainManager: KeychainManager.shared
+                )
+            )
         )
         window?.rootViewController = signUpViewController
         window?.makeKeyAndVisible()
