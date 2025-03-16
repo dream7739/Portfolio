@@ -198,7 +198,7 @@ final class AssetViewController: UIViewController {
     }
     
     @objc func graphViewTapped() {
-        guard let assetList = viewModel.Portfolio?.data.assetList else { return }
+        guard let assetList = viewModel.portfolio?.data.assetList else { return }
         let viewModel = PortfolioViewModel(assetList: assetList)
         navigationController?.pushViewController(
             PortfolioViewController(viewModel: viewModel),

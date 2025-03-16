@@ -104,8 +104,6 @@ final class SignUpViewController: UIViewController {
             let assetViewModel = AssetViewModel(jsonConverter: JSONConverter.shared)
             let assetViewController = AssetViewController(viewModel: assetViewModel)
             navigationController?.pushViewController(assetViewController, animated: true)
-            
-            print(try? KeychainManager.shared.getEmailPassword())
         }
     }
 }
