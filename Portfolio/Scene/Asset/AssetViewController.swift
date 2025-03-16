@@ -130,6 +130,8 @@ final class AssetViewController: UIViewController {
         view.backgroundColor = .darkBlack
 
         graphView.backgroundColor = .darkBlack
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(graphViewTapped))
+        graphView.addGestureRecognizer(tapGesture)
         graphView.isUserInteractionEnabled = true
 
         titleLabel.numberOfLines = 2
@@ -194,7 +196,16 @@ final class AssetViewController: UIViewController {
         etcStackView.distribution = .fillEqually
         etcStackView.spacing = 15
     }
-  
+    
+    @objc func graphViewTapped() {
+        guard let assetList = viewModel.portfolio?.data.assetList else { return }
+        let viewModel = PortfolioViewModel(assetList: assetList)
+        navigationController?.pushViewController(
+            PortfolioViewController(viewModel: viewModel),
+            animated: true
+        )
+    }
+    
     // 자산리스트 json 로드
     private func configureAssetList() {
         guard let portFolio = viewModel.readPortfolio() else {
