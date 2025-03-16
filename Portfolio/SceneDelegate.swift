@@ -18,14 +18,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        let assetViewController = AssetViewController(
-            viewModel: AssetViewModel(
-                jsonConverter: JSONConverter.shared
-            )
+//        let assetViewController = AssetViewController(
+//            viewModel: AssetViewModel(
+//                jsonConverter: JSONConverter.shared
+//            )
+//        )
+//        window?.rootViewController = UINavigationController(
+//            rootViewController: assetViewController
+//        )
+        
+        let signUpViewController = UINavigationController(
+            rootViewController: SignUpViewController(viewModel: SignUpViewModel())
         )
-        window?.rootViewController = UINavigationController(
-            rootViewController: assetViewController
-        )
+        window?.rootViewController = signUpViewController
         window?.makeKeyAndVisible()
     }
 

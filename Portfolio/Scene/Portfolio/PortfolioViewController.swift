@@ -1,6 +1,6 @@
 //
 //  PortfolioViewController.swift
-//  PracticeGraph
+//  Portfolio
 //
 //  Created by 홍정민 on 3/16/25.
 //
