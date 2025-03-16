@@ -10,6 +10,11 @@ import SnapKit
 import Toast
 
 final class AssetViewController: UIViewController {
+    enum Literal {
+        static let title = "장기투자에 적합한\n적극적인 자산배분"
+        static let description = "'\(AssetName.retirement)'에\n최적화된 자산배분입니다"
+    }
+    
     private let graphView = CircleGraphView()
     private let titleLabel = UILabel()
     private let descriptionLabel = UILabel()
@@ -137,12 +142,12 @@ final class AssetViewController: UIViewController {
         titleLabel.numberOfLines = 2
         titleLabel.textColor = .textPrimary
         titleLabel.font = .systemFont(ofSize: 18, weight: .bold)
-        titleLabel.text = "장기투자에 적합한\n적극적인 자산배분"
+        titleLabel.text = Literal.title
         
         descriptionLabel.numberOfLines = 2
         descriptionLabel.textColor = .textSecondary
         descriptionLabel.font = .systemFont(ofSize: 12, weight: .medium)
-        descriptionLabel.text = "'\(AssetName.retirement)'에\n최적화된 자산배분입니다"
+        descriptionLabel.text = Literal.description
 
         let attrString = NSMutableAttributedString(string: descriptionLabel.text!)
     
@@ -213,7 +218,7 @@ final class AssetViewController: UIViewController {
             return
         }
         
-        // 선진, 신흥 구분이 없이 데이터가 있기 때문에 편의상 모두 선진(주식/채권)이라고 가정
+        // 선진, 신흥 구분이 없이 데이터가 있기 때문에 편의상 모두 신흥(주식/채권)이라고 가정
         let asset = portfolio.data.assetList
         let stock = asset.filter { $0.type == PortfolioType.stock.rawValue }.map { $0.ratio }.reduce(0, +)
         let bond = asset.filter { $0.type == PortfolioType.bond.rawValue }.map { $0.ratio }.reduce(0, +)
@@ -233,4 +238,3 @@ final class AssetViewController: UIViewController {
     }
     
 }
-

@@ -9,6 +9,12 @@ import UIKit
 import SnapKit
 
 final class SignUpViewController: UIViewController {
+    enum Literal {
+        static let title = "상위 1% 자산관리를 당신에게 AIM®"
+        static let description = "회원정보를 입력해주세요"
+        static let nextButtonTitle = "회원가입"
+    }
+    
     private let titleLabel = UILabel()
     private let announceLabel = UILabel()
     private let nextButton = BasicButton()
@@ -74,10 +80,10 @@ final class SignUpViewController: UIViewController {
     
     private func configureView() {
         view.backgroundColor = .white
-        titleLabel.text = "상위 1% 자산관리를 당신에게 AIM®"
+        titleLabel.text = Literal.title
         titleLabel.font = .systemFont(ofSize: 12)
         
-        announceLabel.text = "회원정보를 입력해주세요"
+        announceLabel.text = Literal.description
         announceLabel.font = .boldSystemFont(ofSize: 16)
         
         infoStackView.axis = .vertical
@@ -86,7 +92,7 @@ final class SignUpViewController: UIViewController {
         
         emailInputView.inputTextField.becomeFirstResponder()
         
-        nextButton.setButtonTitle("회원가입")
+        nextButton.setButtonTitle(Literal.nextButtonTitle)
         nextButton.addTarget(self, action: #selector(nextButtonClicked), for: .touchUpInside)
     }
     

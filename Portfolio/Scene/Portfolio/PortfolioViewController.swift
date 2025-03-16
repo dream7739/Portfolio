@@ -9,6 +9,12 @@ import UIKit
 import SnapKit
 
 final class PortfolioViewController: UIViewController {
+    enum Literal {
+        static let infoButtonTitle = "ETF란?"
+        static let title = "선진시장 주식"
+        static let description = "각 ETF 종목별 기본 정보, 보유 수량,\n최근 1일 수익률 정보입니다"
+    }
+    
     private let backButton = UIButton()
     private let etfInfoButton = UIButton()
     private let headerView = UIView()
@@ -54,7 +60,7 @@ final class PortfolioViewController: UIViewController {
         navigationItem.leftBarButtonItem = backButton
         navigationItem.backButtonTitle = ""
        
-        etfInfoButton.setTitle("ETF란?", for: .normal)
+        etfInfoButton.setTitle(Literal.infoButtonTitle, for: .normal)
         etfInfoButton.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         etfInfoButton.backgroundColor = .clear
         etfInfoButton.setTitleColor(.white, for: .normal)
@@ -109,11 +115,11 @@ final class PortfolioViewController: UIViewController {
         
         headerView.backgroundColor = .stock1
         
-        titleLabel.text = "선진시장 주식"
+        titleLabel.text = Literal.title
         titleLabel.textColor = .white
         titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .heavy)
         
-        descriptionLabel.text = "각 ETF 종목별 기본 정보, 보유 수량,\n최근 1일 수익률 정보입니다"
+        descriptionLabel.text = Literal.description
         descriptionLabel.textColor = .white
         descriptionLabel.font = UIFont.systemFont(ofSize: 13)
         descriptionLabel.numberOfLines = 2

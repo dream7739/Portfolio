@@ -1,5 +1,5 @@
 //
-//  Literal.swift
+//  AssetName.swift
 //  Portfolio
 //
 //  Created by 홍정민 on 3/16/25.
